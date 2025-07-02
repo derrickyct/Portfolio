@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { AnimatePresence, motion } from "motion/react"
 
+import { FaLinkedin, FaGithub } from "react-icons/fa"
 import profileImg from '../assets/profile.jpg'
 
 const header = "Hi, I'M DERRICK!"
@@ -25,7 +26,7 @@ const Home = () => {
           <h1 className="text-3xl font-bold mb-2">{ header }</h1>
 
           {/* Title Animation */}
-          <div className="w-full sm:min-h-[8rem] lg:min-h-[5rem]">
+          <div className="w-full min-h-[8.5rem] sm:min-h-[5rem] lg:min-h-[9rem]">
             <AnimatePresence initial={false}>
               {isVisible ? (
                 <motion.h1
@@ -42,9 +43,31 @@ const Home = () => {
           </div>
 
           {/* Self Intro */}
-          <p className="">
+          <p className="test-gray-200">
             { intro ? intro : "" }
           </p>
+
+          <hr className="my-4 text-gray-700 border-1" />
+
+          {/* Social Links */}
+          <div className="flex gap-4 mt-2">
+            <a
+              href="https://www.linkedin.com/in/chuntingyiu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-green-400 hover:text-green-300 border-2 p-4 rounded-full"
+            >
+              <FaLinkedin size={20} />
+            </a>
+            <a
+              href="https://github.com/derrickyct"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-green-400 hover:text-green-300 border-2 p-4 rounded-full"
+            >
+              <FaGithub size={20} />
+            </a>
+          </div>
         </div>
         <div className="flex justify-center items-center">
           <img

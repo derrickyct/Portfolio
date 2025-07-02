@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { 
   FaHtml5,
   FaCss3,
@@ -175,9 +175,11 @@ const Resume = () => {
                 <div className={`grid grid-cols-1 
                   ${ activeTab === 'skills' ? 'sm:grid-cols-3 md:grid-cols-4' : 'md:grid-cols-2' }
                 gap-6`}>
-                  { data.map((item, idx) => (
-                    <ResumeCard key={ idx } data={ item } type={ activeTab } />
-                  )) }
+                  <AnimatePresence mode="wait">
+                    { data.map((item, idx) => (
+                      <ResumeCard key={ idx } data={ item } type={ activeTab } />
+                    )) }
+                  </AnimatePresence>
                 </div>
               </motion.div>
             ) }

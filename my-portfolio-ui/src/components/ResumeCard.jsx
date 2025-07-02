@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { motion } from 'framer-motion'
 
-const ResumeCard = ({ data, type }) => {
+const ResumeCard = ({ key, data, type }) => {
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
@@ -42,10 +42,13 @@ const ResumeCard = ({ data, type }) => {
 
   return (
     <motion.div
+      key={ key }
       className="relative bg-gray-800 rounded-lg shadow-lg p-5 flex flex-col items-start border-t-4 text-green-400 transform hover:scale-105 transition-transform duration-300 group text-left "
       variants={cardVariants}
-      initial="hidden"
-      whileInView="visible"
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 50 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
       viewport={{ once: true, amount: 0.5 }}
     >
       {/* Image for Skills */}
@@ -77,6 +80,7 @@ const ResumeCard = ({ data, type }) => {
 }
 
 ResumeCard.propTypes = {
+  key: PropTypes.number,
   data: PropTypes.oneOfType([
     PropTypes.shape({
       title: PropTypes.string.isRequired,

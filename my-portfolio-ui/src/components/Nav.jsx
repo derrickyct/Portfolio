@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { NavLink } from "react-router-dom"
 
 const navItems = [
-  { label: 'Home', to: '/home' },
+  { label: 'Home', to: '/' },
   { label: 'Resume', to: '/resume' },
   { label: 'Work', to: '/work' },
   { label: 'Contact', to: '/contact' },
@@ -27,7 +27,7 @@ const Nav = () => {
     <nav className="bg-gray-900 shadow-lg relative z-50">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
-        <NavLink key="Logo" to="/home" className="text-white text-2xl font-bold tracking-wider p-4 m-4 hover:text-green-400 transition-colors duration-200">
+        <NavLink key="Logo" to={ navItems.find(item => { item.label === 'Home' }) } className="text-white text-2xl font-bold tracking-wider p-4 m-4 hover:text-green-400 transition-colors duration-200">
           Derrick
         </NavLink>
 

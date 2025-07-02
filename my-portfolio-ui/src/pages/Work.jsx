@@ -71,6 +71,7 @@ const Work = () => {
           {/* Show More Button */}
           {/* <ShowMore className="mt-4" text="Show More" /> */}
           {/* Code Snippet */}
+          
         </div>
 
         {/* Prject Image(if available) */} 
