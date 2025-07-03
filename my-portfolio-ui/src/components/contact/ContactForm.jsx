@@ -1,7 +1,7 @@
 import { React, useState } from 'react'
 import { motion } from 'framer-motion'
 
-import { submitContactForm } from '../api/contactApi'
+import { submitContactForm } from '../../api/contactApi'
 
 const ContactForm = () => {
   const successMessage = 'Thank you for your message! I will get back to you as soon as possible.'

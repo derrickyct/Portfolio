@@ -1,21 +1,25 @@
-import express from "express";
-import contactRoutes from "./routes/contact";
-import cors from 'cors';
+import dotenv from 'dotenv';
+dotenv.config();
 
-const app = express();
+import express from 'express';
+import cors from 'cors';
+import contactRoutes from './routes/contact';
+import codeSnippet from './routes/codeSnippet'
+
 const PORT = 3000;
 
+const app = express();
+
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: process.env.FRONTEND_BASE_URL,
   credentials: true,
 }));
-// Middleware to parse JSON
+
 app.use(express.json());
 
-// Use your routes
-app.use("/api", contactRoutes);
+app.use('/api', contactRoutes);
+app.use('/api', codeSnippet);
 
-// Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });

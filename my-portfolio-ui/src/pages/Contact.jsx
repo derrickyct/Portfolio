@@ -1,28 +1,8 @@
 import React from 'react'
-import { motion } from 'framer-motion'
-import { FaPhoneAlt, FaLinkedin  } from 'react-icons/fa'
-import { MdEmail } from "react-icons/md";
 
-import ContactList from '../components/ContactList'
-import ContactForm from '../components/ContactForm'
-
-const contacts = [
-  {
-    label: 'Phone',
-    value: '+1 (647)914-8790',
-    icon: <FaPhoneAlt />
-  },
-  {
-    label: 'Email',
-    value: 'derrickyiuct@gmail.com',
-    icon: <MdEmail />
-  },
-  {
-    label: 'LinkedIn',
-    value: 'https://www.linkedin.com/in/chuntingyiu',
-    icon: <FaLinkedin />
-  }
-]
+import { contacts } from '../constants/contacts';
+import ContactList from '../components/contact/ContactList'
+import ContactForm from '../components/contact/ContactForm'
 
 const Contact = () => {
 

@@ -15,11 +15,6 @@ const menuVariants = {
   exit: { opacity: 0, x: "100%", transition: { type: "tween", duration: 0.3 } },
 }
 
-// Animation variants for menu items
-const menuItemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.2, ease: "easeOut" } },
-}
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false)
 
@@ -27,7 +22,7 @@ const Nav = () => {
     <nav className="bg-gray-900 shadow-lg relative z-50">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
-        <NavLink key="Logo" to={ navItems.find(item => { item.label === 'Home' }) } className="text-white text-2xl font-bold tracking-wider p-4 m-4 hover:text-green-400 transition-colors duration-200">
+        <NavLink key="Logo" to={ navItems.find(item => item.label === 'Home')?.to } className="text-white text-2xl font-bold tracking-wider p-4 m-4 hover:text-green-400 transition-colors duration-200">
           Derrick
         </NavLink>
 

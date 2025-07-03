@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa'
 
-const WorkSliderBtn = ({ onPrev, onNext, current, total }) => (
+const WorkSliderBtn = ({ onPrev, onNext }) => (
   <div className="flex gap-8 m-10">
     {/* Previouse Button */}
     <button
