@@ -13,7 +13,7 @@ const ResumeCard = ({ data, type }) => {
   let dates = ''
   let description = ''
   // let listItems = []
-  let imageUrl = ''
+  let icon = null
   let tooltipText = ''
 
   switch (type) {
@@ -33,7 +33,7 @@ const ResumeCard = ({ data, type }) => {
     case 'skills':
       // titleText = data.name
       subtitleText = data.level
-      imageUrl = data.imageUrl
+      icon = data.icon
       tooltipText = data.details ? data.details.join(', ') : data.name
       break
     default:
@@ -44,14 +44,16 @@ const ResumeCard = ({ data, type }) => {
     <motion.div
       className="relative bg-gray-800 rounded-lg shadow-lg p-5 flex flex-col items-start border-t-4 text-green-400 transform hover:scale-105 transition-transform duration-300 group text-left "
       variants={cardVariants}
-      initial="hidden"
-      whileInView="visible"
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 50 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
       viewport={{ once: true, amount: 0.5 }}
     >
-      {/* Image for Skills */}
-      { type === 'skills' && imageUrl && (
+      {/* Icon for Skills */}
+      { type === 'skills' && icon && (
         <div className="w-full flex justify-center items-center text-6xl text-white group-hover:text-green-400 mb-3">
-          {imageUrl}
+          { React.createElement(icon) }
         </div>
       ) }
 
@@ -78,28 +80,27 @@ const ResumeCard = ({ data, type }) => {
 
 ResumeCard.propTypes = {
   data: PropTypes.oneOfType([
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      company: PropTypes.string.isRequired,
-      dates: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-      // responsibilities: PropTypes.arrayOf(PropTypes.string).isRequired
-    }),
-    PropTypes.shape({
-      degree: PropTypes.string.isRequired,
-      institution: PropTypes.string.isRequired,
-      dates: PropTypes.string.isRequired,
-      // description: PropTypes.string.isRequired,
-      // achievements: PropTypes.arrayOf(PropTypes.string).isRequired
-    }),
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      level: PropTypes.string.isRequired,
-      imageUrl: PropTypes.string,
-      details: PropTypes.arrayOf(PropTypes.string)
-    })
+    PropTypes.arrayOf(
+      PropTypes.oneOfType([
+        PropTypes.shape({
+          title: PropTypes.string,
+          company: PropTypes.string,
+          dates: PropTypes.string,
+          description: PropTypes.string,
+        }),
+        PropTypes.shape({
+          degree: PropTypes.string,
+          institution: PropTypes.string,
+          dates: PropTypes.string,
+        }),
+        PropTypes.shape({
+          name: PropTypes.string,
+          icon: PropTypes.elementType,
+        }),
+      ])
+    )
   ]).isRequired,
-  type: PropTypes.oneOf(['work', 'education']).isRequired
+  type: PropTypes.oneOf(['work', 'education', 'skills']).isRequired
 }
 
 export default ResumeCard

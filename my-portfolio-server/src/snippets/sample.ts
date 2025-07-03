@@ -1,0 +1,60 @@
+const dynamo = require('dynamodb');
+const AWS = require('aws-sdk');
+require('dotenv').config();
+
+dynamo.AWS.config.update({
+  region: process.env.REGION,
+  accessKeyId: process.env.ACCESS_KEY_ID,
+  secretAccessKey: process.env.SECRET_ACCESS_KEY
+});
+
+const dynamodbClient = new AWS.DynamoDB.DocumentClient();
+  const tableName = 'Sample';
+
+module.exports = {
+
+  CreateClient: async (tableName, clientStatus, expireDay) => {
+    user.create()
+  },
+
+  /**
+   * Add or update the running status of client
+   * @param {*} clientStatus 
+   * @returns 
+   */
+  // example of parameter to update status
+  // const clientStatus = {
+  //     client: 'liquidenv',
+  //     status: 'OK',
+  //     lastRun: '2022-05-11',
+  //     frequency: 2
+  // };
+  UpdateClientStatus: async (tableName, clientStatus, expireDay) => {
+    const params = {
+      TableName : tableName,
+        Item: clientStatus,
+        ttl: { // must be number
+            EXPIRATION: Math.floor(new Date().getTime()/ 1000) + expireDay * 24 * 60 * 60 // do not convert to milliseconds
+        }
+    };
+    return await dynamodbClient.put(params).promise();
+  },
+
+  /**
+   * Get the client running status by its name
+   * @param {*} tableName 
+   * @param {*} client 
+   * @returns 
+   */
+  // example to get status by client name
+  // const client = "liquid_environment";
+  getStatusByClientName: async (tableName, statusId) => {
+    const params = {
+      TableName: tableName,
+      Key: {
+          HashKey: statusId
+      }
+    }
+    return await dynamodbClient.get(params).promise();
+  },
+}
