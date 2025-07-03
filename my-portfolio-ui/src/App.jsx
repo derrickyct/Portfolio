@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import './App.css'
 
-import Nav from './Components/Nav'
+import Nav from './components/Nav'
 import Home from './pages/Home'
 import Resume from './pages/Resume'
 import Work from './pages/Work'
