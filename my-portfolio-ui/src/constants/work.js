@@ -1,20 +1,21 @@
 import gdctImg from '../assets/gdct.jpg'
 import ielts from '../assets/ielts.jpg'
+import airplane from '../assets/airplane.jpg'
 
 export const projects = [
   {
     title: 'Generic Data Collection Tools',
     description: 'A web application that extracts and stores data from uploaded Excel files into SQL Server and SharePoint, with built-in support for template customization, secure authentication, and automated approval workflows.',
     tasks: [
-      'Deployed with C# .NET and Blazor Web Server following an n-tier architecture for modularity and maintainability',
-      'Utilized Entity Framework Core and LINQ to efficiently manage and query SQL Server Express databases', 
-      'Built and refined an Excel data extraction and merge tool using Open XML SDK, improving processing speed by 90%', 
-      'Integrated with SharePoint APIs to manage, upload, and retrieve Excel documents programmatically', 
-      'Developed RESTful APIs to facilitate communication between the front-end and back-end layers', 
-      'Implemented secure authentication and authorization using OpenID Connect (OIDC) and Azure Active Directory (AAD)',
-      'Enabled template designers to modify Excel templates, triggering Power Automate workflows for approval notifications',
-      'Admin and user interfaces for managing uploaded data, templates, and approval statuses',
-      'Hosted and deployed on Microsoft Azure, leveraging cloud scalability and security'
+      'Deployed with C# .NET and Blazor Web Server following an n-tier architecture for modularity and maintainability.',
+      'Utilized Entity Framework Core and LINQ to efficiently manage and query SQL Server Express databases.', 
+      'Built and refined an Excel data extraction and merge tool using Open XML SDK, improving processing speed by 90%.', 
+      'Integrated with SharePoint APIs to manage, upload, and retrieve Excel documents programmatically.', 
+      'Developed RESTful APIs to facilitate communication between the front-end and back-end layers.', 
+      'Implemented secure authentication and authorization using OpenID Connect (OIDC) and Azure Active Directory (AAD).',
+      'Enabled template designers to modify Excel templates, triggering Power Automate workflows for approval notifications.',
+      'Admin and user interfaces for managing uploaded data, templates, and approval statuses.',
+      'Hosted and deployed on Microsoft Azure, leveraging cloud scalability and security.'
     ],
     tech: [
       'C# .NET',
@@ -72,6 +73,25 @@ export const projects = [
       'Node.js',
       'JSON'
     ]
+  },
+  {
+    title: 'Aircraft Components Supplier Automation',
+    description: 'An RPA-driven automation solution developed to automate quality assurance operations for an aircraft components supplier."',
+    tasks: [
+      'Utilized UiPath Studio and G1ant to automate repetitive validation and reporting tasks',
+      'Collaborated closely with the QA team to identify and optimize manual bottlenecks.', 
+      'Achieved approximately 40% improvement in operational efficiency, reducing human error and turnaround time.', 
+      'Enhanced system reliability and maintainability through structured automation logic and error handling.'
+    ],
+    tech: [
+      'UiPath Studio',
+      'G1ant'
+    ],
+    img: airplane,
+    code: {
+      projectName: 'airplane',
+      filenames: ['g1ant.txt']
+    }
   },
   {
     title: 'Data Scraping and Analyzing Application',

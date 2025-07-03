@@ -1,0 +1,17 @@
+procedure LOGIN_001 test_case_id
+  try errorcall writeStatus
+      
+    call readConfig
+    
+    call openBrowser url ♥url
+    
+    ♥reason = ‴check button exists‴
+    selenium.waitforvalue ‴return document.querySelectorAll("button[id=loginButton]").length > 0‴ expectedvalue true
+    
+    ♥message = ‴Passed‴
+    
+    call writeStatus message ♥message inputRow ♥test_case_id
+    
+    selenium.close
+  end
+end procedure
